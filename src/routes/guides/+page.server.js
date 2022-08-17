@@ -1,8 +1,8 @@
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
-	const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+export async function load({ url }) {
+	const res = await fetch(`${url.origin}/api/guides`, {
 		method: 'GET',
 		headers: {
 			Accept: 'application/json',
